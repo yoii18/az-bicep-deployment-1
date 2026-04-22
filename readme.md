@@ -1,7 +1,7 @@
 right, so I am learning how to build proper bicep IaC based pipelines.
 The aim of this one would be building a simple copy data activity but with pagination (hopefully)
 
-I will use an opensource API for this (codeforces), will see what method I want to use.
+I will use an opensource API for this (codeforces), specifically, user.status method, because I think I can implement pagination here.
 
 Step 1: Create a storage account
 Step 2: define the data factory and its datasets & linked services
