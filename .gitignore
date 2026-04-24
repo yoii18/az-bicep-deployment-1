@@ -1,0 +1,5 @@
+creds.sh
+.terraform
+*.hcl
+*.tfstate
+*.backup

@@ -1,4 +1,4 @@
-right, so I am learning how to build proper bicep IaC based pipelines.
+right, so I am learning how to build proper terraform IaC based pipelines.
 The aim of this one would be building a simple copy data activity but with pagination (hopefully)
 
 I will use an opensource API for this (codeforces), specifically, user.status method, because I think I can implement pagination here.
