@@ -10,3 +10,6 @@ Step 4: define the key vault/ switch to RBAC (if I get a hang of it in time obv)
 Step 5: Deploy the whole thing 
 
 Now, Step 6 should be scheduling and all using something like airflow imo but I am not familiar with that (yet) so we will see.
+
+
+xxxxxxx
