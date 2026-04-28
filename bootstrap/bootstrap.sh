@@ -80,28 +80,37 @@ az role assignment create \
   --scope "/subscriptions/$SUB_ID/resourceGroups/$TFSTATE_RG_NAME/providers/Microsoft.Storage/storageAccounts/$STORAGE_ACCOUNT"
 
 echo ">>> Adding OIDC federated credentials..."
-az ad app federated-credential create --id "$STAGING_APP" --parameters "{
-  \"name\": \"github-main-branch\",
-  \"issuer\": \"https://token.actions.githubusercontent.com\",
-  \"subject\": \"repo:yoii18/az-bicep-deployment-1:ref:refs/heads/main\",
-  \"audiences\": [\"api://AzureADTokenExchange\"]
-}"
+# az ad app federated-credential create --id "$STAGING_APP" --parameters "{
+#   \"name\": \"github-main-branch\",
+#   \"issuer\": \"https://token.actions.githubusercontent.com\",
+#   \"subject\": \"repo:yoii18/az-bicep-deployment-1:ref:refs/heads/main\",
+#   \"audiences\": [\"api://AzureADTokenExchange\"]
+# }"
 
-# az ad app federated-credential create \
-#   --id <SP_STAGING_APP_ID> \
-#   --parameters '{
-#     "name": "github-staging-environment",
-#     "issuer": "https://token.actions.githubusercontent.com",
-#     "subject": "repo:yoii18/az-bicep-deployment-1:environment:staging",
-#     "audiences": ["api://AzureADTokenExchange"]
-#   }'
+az ad app federated-credential create \
+  --id $STAGING_APP \
+  --parameters '{
+    "name": "github-staging-environment",
+    "issuer": "https://token.actions.githubusercontent.com",
+    "subject": "repo:yoii18/az-bicep-deployment-1:environment:staging",
+    "audiences": ["api://AzureADTokenExchange"]
+  }'
 
-az ad app federated-credential create --id "$PROD_APP" --parameters "{
-  \"name\": \"github-production-branch\",
-  \"issuer\": \"https://token.actions.githubusercontent.com\",
-  \"subject\": \"repo:yoii18/az-bicep-deployment-1:ref:refs/heads/production\",
-  \"audiences\": [\"api://AzureADTokenExchange\"]
-}"
+# az ad app federated-credential create --id "$PROD_APP" --parameters "{
+#   \"name\": \"github-production-branch\",
+#   \"issuer\": \"https://token.actions.githubusercontent.com\",
+#   \"subject\": \"repo:yoii18/az-bicep-deployment-1:ref:refs/heads/production\",
+#   \"audiences\": [\"api://AzureADTokenExchange\"]
+# }"
+
+az ad app federated-credential create \
+  --id $PROD_APP \
+  --parameters '{
+    "name": "github-prod-environment",
+    "issuer": "https://token.actions.githubusercontent.com",
+    "subject": "repo:yoii18/az-bicep-deployment-1:environment:production",
+    "audiences": ["api://AzureADTokenExchange"]
+  }'
 
 
 echo ""
